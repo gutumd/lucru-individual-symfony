@@ -1,0 +1,27 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment{% endblock %}
+
+{% block body %}
+    <h1 align="Center">Comentarii</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ comment.id }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ comment.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_comment_index') }}">Inapoi</a>
+
+    <a href="{{ path('app_comment_edit', {'id': comment.id}) }}">Editeaza</a>
+
+    {{ include('comment/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment index{% endblock %}
+
+{% block body %}
+    <h1>Comentariile:</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>Actiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.content }}</td>
+                <td>
+                    <a href="{{ path('app_comment_show', {'id': comment.id}) }}">Detalii</a>
+                    <a href="{{ path('app_comment_edit', {'id': comment.id}) }}">Editeaza</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Nu exista comentarii./td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_comment_new') }}">Comentariu Nou</a>
+{% endblock %}

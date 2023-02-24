@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block body %}
+{{ include('post/_menu.html.twig')}}
+    <h1>Creeaza Postare noua</h1>
+<table>
+    {{ include('post/_form.html.twig') }}
+
+    <a href="{{ path('app_post_index') }}">Inapoi</a>
+    </table>
+
+{% endblock %}
